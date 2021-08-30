@@ -1,8 +1,8 @@
 # pymnn
 
 本项目提供了MNN的python包装。
-MNN项目内本身包含了Python包装模块， 你根据MNN的readme可以轻松编译出一个whl文件，但是很难用交叉编译环境编译出一个在aarch64平台上whl文件，比如pi， 或者我现在用的
-r329. 本项目则注重在pi上通过python调用MNN进行推理。
+
+其实MNN项目内本身包含了Python包装模块， 你根据MNN的readme可以轻松编译出一个whl文件，但是确很难用交叉编译环境编译出一个在aarch64平台上whl文件，比如pi， 或者我现在用的r329.  而本项目的则是提供一套python版本的MNN让你能够在pi上调用MNN进行推理。
 
 - 编译
 
