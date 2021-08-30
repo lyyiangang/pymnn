@@ -71,11 +71,11 @@ public:
 
         // std::vector<int> dims{1, 320, 320, 3};
         std::vector<int> dims = {_input_ts->shape()[0], _input_ts->shape()[2], _input_ts->shape()[3], _input_ts->shape()[1]};
-        auto nhwc_Tensor = MNN::Tensor::create<float>(dims, NULL, MNN::Tensor::TENSORFLOW);
+        std::unique_ptr<MNN::Tensor> nhwc_Tensor = MNN::Tensor::create<float>(dims, NULL, MNN::Tensor::TENSORFLOW);
         auto nhwc_data   = nhwc_Tensor->host<float>();
         auto nhwc_size   = nhwc_Tensor->size();
         ::memcpy(nhwc_data, (float*)bufinfo.ptr, nhwc_size);
-        auto input_ts = nhwc_Tensor;
+        auto input_ts = nhwc_Tensor.get();
         
         _input_ts->copyFromHostTensor(input_ts);
         // _input_ts->print();
